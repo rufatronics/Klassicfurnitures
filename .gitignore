@@ -1,0 +1,5 @@
+node_modules/
+*.log
+verify_mobile.js
+mobile_preview.png
+modal_preview.png
