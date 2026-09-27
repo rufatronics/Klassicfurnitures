@@ -1,27 +1,29 @@
 /*
-  Klassic Furniture Mobile-First Optimized CSS
-  Target Viewports: 360px - 430px wide screens (Android / Low-end mobile devices)
-  Focus: High performance, zero bloat, high visibility WhatsApp CTAs, min 48px touch targets
+  Klassic Furniture - Minimal Modern Mobile-First CSS
+  Target: 360px – 430px Android / Mobile screens
+  Performance: Zero framework bloat, sub-50ms render, WebP support, 48px+ tap targets
 */
 
 :root {
-  --primary-color: #16a34a;       /* WhatsApp Green */
-  --primary-dark: #15803d;
-  --secondary-color: #0f172a;     /* Deep Navy Slate */
-  --accent-gold: #d97706;         /* Warm Gold Accent */
-  --bg-light: #f8fafc;
+  --primary-color: #059669;       /* Modern Emerald WhatsApp Green */
+  --primary-dark: #047857;
+  --secondary-color: #0f172a;     /* Slate Dark Neutral */
+  --accent-gold: #d97706;         /* Refined Warm Amber */
+  --bg-main: #fafafa;
   --card-bg: #ffffff;
-  --text-main: #1e293b;
+  --text-main: #0f172a;
   --text-muted: #64748b;
-  --border-color: #e2e8f0;
+  --text-light: #94a3b8;
+  --border-color: #f1f5f9;
+  --border-subtle: #e2e8f0;
   --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --touch-target-min: 48px;
   --radius-sm: 8px;
-  --radius-md: 14px;
+  --radius-md: 12px;
   --radius-lg: 20px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+  --shadow-sm: 0 1px 3px rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.02);
+  --shadow-md: 0 4px 12px rgba(15,23,42,0.06);
+  --shadow-lg: 0 12px 28px rgba(15,23,42,0.12);
 }
 
 *, *::before, *::after {
@@ -38,11 +40,12 @@ html {
 }
 
 body {
-  background-color: var(--bg-light);
+  background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.5;
-  padding-bottom: 76px; /* Space for fixed bottom WhatsApp bar */
+  padding-bottom: 80px; /* Space for fixed bottom WhatsApp CTA bar */
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -62,17 +65,18 @@ img {
   padding-right: 16px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 600px;
+  max-width: 580px;
 }
 
 /* Announcement Bar */
 .announcement-bar {
   background-color: var(--secondary-color);
-  color: #f1f5f9;
-  font-size: 0.75rem;
+  color: #f8fafc;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
   text-align: center;
-  padding: 6px 12px;
+  padding: 7px 12px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -80,12 +84,12 @@ img {
 
 /* Header */
 .header {
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--shadow-sm);
 }
 
 .header-container {
@@ -110,19 +114,19 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: #dcfce7;
+  background-color: #ecfdf5;
   color: var(--primary-dark);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   padding: 8px 14px;
   border-radius: 20px;
   min-height: 40px;
-  border: 1px solid #bbf7d0;
-  transition: background-color 0.2s ease;
+  border: 1px solid #a7f3d0;
+  transition: background-color 0.15s ease;
 }
 
 .head-wa-btn:active {
-  background-color: #bbf7d0;
+  background-color: #d1fae5;
 }
 
 .wa-icon {
@@ -138,36 +142,39 @@ img {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
   color: #ffffff;
-  padding: 32px 16px;
+  padding: 36px 16px 32px;
   text-align: center;
-  border-bottom-left-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
 
 .hero-badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fde68a;
-  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fef08a;
+  font-size: 0.75rem;
   font-weight: 600;
-  padding: 6px 12px;
+  padding: 5px 12px;
   border-radius: 20px;
-  margin-bottom: 14px;
-  backdrop-filter: blur(4px);
+  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.22;
   margin-bottom: 12px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  color: #ffffff;
 }
 
 .hero-subtext {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: #94a3b8;
   margin-bottom: 24px;
   line-height: 1.45;
@@ -179,7 +186,7 @@ img {
   gap: 12px;
 }
 
-/* Common Buttons (Min 48px Touch Height) */
+/* Buttons (Min 48px Touch Target Height) */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -187,14 +194,15 @@ img {
   gap: 8px;
   min-height: var(--touch-target-min);
   padding: 12px 20px;
-  border-radius: 12px;
-  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
   font-weight: 700;
   border: none;
   cursor: pointer;
   width: 100%;
   text-align: center;
   touch-action: manipulation;
+  transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
 .btn-primary {
@@ -210,7 +218,7 @@ img {
 .btn-whatsapp-lg {
   background-color: var(--primary-color);
   color: #ffffff;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   min-height: 52px;
 }
 
@@ -229,9 +237,10 @@ img {
 }
 
 .pill {
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   color: #cbd5e1;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 4px 10px;
   border-radius: 12px;
 }
@@ -250,16 +259,16 @@ img {
   font-size: 1.35rem;
   font-weight: 800;
   color: var(--secondary-color);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .section-subtitle {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
   margin-top: 4px;
 }
 
-/* Filter Tabs - One Hand Horizontal Scroll */
+/* One-Hand Thumb Horizontal Filter Tabs */
 .category-tabs {
   display: flex;
   gap: 8px;
@@ -280,13 +289,14 @@ img {
   min-height: 42px;
   padding: 8px 16px;
   border-radius: 20px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-subtle);
   background: var(--card-bg);
   color: var(--text-main);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
   touch-action: manipulation;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .tab-btn.active {
@@ -295,7 +305,7 @@ img {
   border-color: var(--secondary-color);
 }
 
-/* Product Cards */
+/* Product Grid */
 .product-grid {
   display: flex;
   flex-direction: column;
@@ -315,7 +325,7 @@ img {
 
 .card-image-wrap {
   position: relative;
-  background-color: #f1f5f9;
+  background-color: #f8fafc;
   cursor: pointer;
   aspect-ratio: 4/3;
   overflow: hidden;
@@ -325,20 +335,22 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .badge-tag {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.88);
   color: #fbbf24;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   padding: 4px 8px;
   border-radius: 6px;
   backdrop-filter: blur(4px);
   z-index: 2;
+  letter-spacing: 0.02em;
 }
 
 .card-content {
@@ -349,7 +361,7 @@ img {
 }
 
 .product-cat {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--accent-gold);
   text-transform: uppercase;
@@ -358,15 +370,16 @@ img {
 }
 
 .product-name {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: var(--secondary-color);
   margin-bottom: 6px;
   line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .product-desc {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
   margin-bottom: 14px;
   line-height: 1.4;
@@ -390,14 +403,15 @@ img {
 }
 
 .price {
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: var(--secondary-color);
+  letter-spacing: -0.01em;
 }
 
 .old-price {
-  font-size: 0.85rem;
-  color: #94a3b8;
+  font-size: 0.82rem;
+  color: var(--text-light);
   text-decoration: line-through;
 }
 
@@ -411,11 +425,12 @@ img {
   color: #ffffff;
   border: none;
   border-radius: 10px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
   width: 100%;
   touch-action: manipulation;
+  transition: background-color 0.15s ease;
 }
 
 .btn-card-wa:active {
@@ -428,21 +443,23 @@ img {
 }
 
 .banner-box {
-  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
   color: #ffffff;
   padding: 24px 20px;
   border-radius: var(--radius-md);
   text-align: center;
+  box-shadow: var(--shadow-md);
 }
 
 .banner-box h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
 .banner-box p {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: #ecfdf5;
   margin-bottom: 16px;
   line-height: 1.45;
@@ -469,23 +486,25 @@ img {
   padding: 16px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .rating {
   color: #f59e0b;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   margin-bottom: 6px;
 }
 
 .review-text {
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   color: var(--text-main);
   font-style: italic;
   margin-bottom: 8px;
+  line-height: 1.4;
 }
 
 .reviewer-name {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--text-muted);
 }
@@ -500,6 +519,7 @@ img {
   padding: 20px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -513,18 +533,17 @@ img {
 }
 
 .c-icon {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   line-height: 1;
 }
 
 .contact-item strong {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--secondary-color);
-
 }
 
 .contact-item p {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
   margin-top: 2px;
 }
@@ -532,7 +551,6 @@ img {
 .contact-item a {
   color: var(--primary-dark);
   font-weight: 700;
-
 }
 
 /* Footer */
@@ -540,16 +558,16 @@ img {
   background-color: var(--secondary-color);
   color: #94a3b8;
   padding: 24px 0 32px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .footer-tagline {
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   color: #64748b;
   margin-top: 4px;
 }
 
-/* Sticky Bottom WhatsApp Bar (Mobile Priority) */
+/* Sticky Bottom WhatsApp CTA Bar */
 .sticky-wa-bar {
   position: fixed;
   bottom: 0;
@@ -558,8 +576,8 @@ img {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   padding: 10px 16px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
   z-index: 999;
 }
 
@@ -570,12 +588,12 @@ img {
   gap: 10px;
   background-color: var(--primary-color);
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   font-weight: 800;
   min-height: 50px;
   border-radius: 12px;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
   touch-action: manipulation;
 }
 
@@ -672,14 +690,15 @@ img {
 }
 
 .modal-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--secondary-color);
   margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
 
 .modal-price {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--primary-dark);
   margin-bottom: 12px;
@@ -689,7 +708,7 @@ img {
   background: #f8fafc;
   padding: 12px;
   border-radius: var(--radius-sm);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   color: var(--text-main);
   margin-bottom: 16px;
   border: 1px solid var(--border-color);
@@ -709,7 +728,7 @@ img {
   min-height: 52px;
   background-color: var(--primary-color);
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 800;
   border-radius: 12px;
   border: none;
